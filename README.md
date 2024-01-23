@@ -1,2 +1,6 @@
 # SATD: Syntax-Aware Handwritten Mathematical Expression Recognition Based on Tree-Structured Transformer Decoder
-A Transformer-based Tree Decoder Offline Handwritten Mathematical Expression Recognition Model
+## Abstract
+
+The complex two-dimensional structure poses huge challenges for handwritten mathematical expression recognition (HMER).
+Many researchers process the LaTeX sequence into a tree structure and then design tree decoders based on RNN to address this issue. However, RNNs have problems with long-term dependencies due to their structural characteristics.
+Although Transformers solve the long-term dependency problem, tree decoders based on Transformers are rarely used for HMER because the attention coverage is significantly insufficient when the distance between parent and child nodes is large in tree structures. In this paper, we propose a novel offline HMER model SATD incorporating a tree decoder based on Transformer to learn the implicit structural relationships in LaTeX strings. Moreover, to address the issue of distant parent-child nodes, we introduce a multi-scale attention aggregation module (MAAM) to refine attention weights using contextual information with different receptive fields. Experiments on CROHME2014/2016/2019 and HME100K datasets demonstrate performance improvements,  achieving accuracy rates of 63.45\%/60.42\%/61.05\% on the CROHME 2014/2016/2019 test sets.
