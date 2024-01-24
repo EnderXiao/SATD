@@ -1,0 +1,116 @@
+seed_everything: 7
+trainer:
+  logger: true
+  checkpoint_callback: true
+  callbacks:
+  - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+    init_args:
+      logging_interval: epoch
+      log_momentum: false
+  - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+    init_args:
+      filename: '{epoch}-{step}-{val_ExpRate:.4f}'
+      monitor: val_ExpRate
+      verbose: false
+      save_top_k: 1
+      save_weights_only: false
+      mode: max
+      auto_insert_metric_name: true
+  default_root_dir: null
+  gradient_clip_val: 0.0
+  gradient_clip_algorithm: norm
+  process_position: 0
+  num_nodes: 1
+  num_processes: 1
+  devices: null
+  gpus: 1
+  auto_select_gpus: false
+  tpu_cores: null
+  ipus: null
+  log_gpu_memory: null
+  progress_bar_refresh_rate: null
+  overfit_batches: 0.0
+  track_grad_norm: -1
+  check_val_every_n_epoch: 2
+  fast_dev_run: false
+  accumulate_grad_batches: 1
+  max_epochs: 240
+  min_epochs: null
+  max_steps: null
+  min_steps: null
+  max_time: null
+  limit_train_batches: 1.0
+  limit_val_batches: 1.0
+  limit_test_batches: 1.0
+  limit_predict_batches: 1.0
+  val_check_interval: 1.0
+  flush_logs_every_n_steps: 100
+  log_every_n_steps: 50
+  accelerator: null
+  sync_batchnorm: false
+  precision: 32
+  weights_summary: top
+  weights_save_path: null
+  num_sanity_val_steps: 2
+  truncated_bptt_steps: null
+  resume_from_checkpoint: null
+  profiler: null
+  benchmark: false
+  deterministic: true
+  reload_dataloaders_every_n_epochs: 0
+  reload_dataloaders_every_epoch: false
+  auto_lr_find: false
+  replace_sampler_ddp: true
+  terminate_on_nan: false
+  auto_scale_batch_size: false
+  prepare_data_per_node: true
+  plugins: <pytorch_lightning.plugins.training_type.ddp.DDPPlugin object at 0x000001FD70768288>
+  amp_backend: native
+  amp_level: O2
+  distributed_backend: null
+  move_metrics_to_cpu: false
+  multiple_trainloader_mode: max_size_cycle
+  stochastic_weight_avg: false
+model:
+  d_model: 256
+  growth_rate: 24
+  num_layers: 16
+  nhead: 8
+  num_tree_decoder_layer: 3
+  num_decoder_layers: 3
+  dim_feedforward: 1024
+  dropout: 0.3
+  dc: 32
+  cross_coverage: true
+  self_coverage: true
+  threshold: 0.5
+  beam_size: 10
+  max_len: 100
+  alpha: 1.0
+  early_stopping: false
+  temperature: 1.0
+  learning_rate: 0.08
+  patience: 20
+  checkpoint_path: /home/xgy/net/CoMER-TD/lightning_logs/version_236/checkpoints/epoch=79-step=547279-val_ExpRate=0.4047.ckpt
+data:
+  config_path: config.yaml
+  zipfile_path: HME100K_hand.zip
+  test_year: medium_test
+  train_batch_size: 8
+  eval_batch_size: 4
+  test_batch_size: 1
+  num_workers: 0
+  scale_aug: true
+  image_resize: true
+  image_width: 1600
+  image_height: 320
+  image_channel: 1
+  dropout: true
+  train_image_path: C:/Net/CoMER-TD-806/comer/datamodule/train_image.pkl
+  train_label_path: C:/Net/CoMER-TD-806/comer/datamodule/train_label.pkl
+  eval_image_path: C:/Net/CoMER-TD-806/comer/datamodule/test_image.pkl
+  eval_label_path: C:/Net/CoMER-TD-806/comer/datamodule/test_label.pkl
+  test_image_path: C:/Net/CoMER-TD-806/comer/datamodule/test_image.pkl
+  test_label_path: C:/Net/CoMER-TD-806/comer/datamodule/test_label.pkl
+  word_path: C:/Net/CoMER-TD-806/comer/datamodule/word.txt
+  workers: 0
