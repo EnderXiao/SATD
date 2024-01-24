@@ -7,7 +7,7 @@ from satd.lit_satd import LitSATD
 import numpy
 
 test_year = "2014"
-ckp_path = "lightning_logs/version_0/checkpoints/epoch=203-step=225215-val_ExpRate2=0.6294.ckpt"
+ckp_path = "lightning_logs/version_0/checkpoints/epoch=203-step=225215-val_ExpRate=0.6294.ckpt"
 config_path = "config.yaml"
 
 
