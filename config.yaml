@@ -39,7 +39,7 @@ model:
   early_stopping: false
   temperature: 1.0
   # training
-  learning_rate: 0.01
+  learning_rate: 0.08
   checkpoint_path: ''
   patience: 20
 data:
